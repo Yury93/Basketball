@@ -9,7 +9,6 @@ public class InputMove : MonoBehaviour
     {
         Swiper.OnSwipeEvent += Swiper_OnSwipeEvent;
     }
-
     private void Swiper_OnSwipeEvent(Vector2 dir)
     {
         if(dir == Vector2.right)

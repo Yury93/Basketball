@@ -53,7 +53,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6996330660596733237}
-  m_LocalRotation: {x: -0.085568964, y: 0.23413001, z: -0.3118556, w: -0.91684633}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.037, y: 0.034, z: -0.014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -123,6 +123,8 @@ MonoBehaviour:
   teamId: 0
   ballOwner: {fileID: 6996330659070316385}
   animator: {fileID: 3494054453560826270}
+  speed: 0
+  maxSpeed: 0
 --- !u!136 &6996330660814548253
 CapsuleCollider:
   m_ObjectHideFlags: 0

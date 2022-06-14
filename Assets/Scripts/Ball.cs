@@ -19,13 +19,18 @@ public class Ball : MonoBehaviour
         {
             if (!joystick.gameObject.activeSelf)
             {
+                Timer.Instance.ResetTimer();
+               
                 //joystick.gameObject.SetActive(true);
                 UIController.Instance.OurBall(false);
             }
             else
             {
-                rb.AddForce(joystick.Horizontal * offsetSpeed,
-                    joystick.Vertical * offsetSpeed,
+                var deltaHor = joystick.Horizontal;
+                var deltaVert = joystick.Vertical;
+              
+                rb.AddForce(deltaHor * offsetSpeed,
+                    deltaVert * offsetSpeed,
                     speedForward * Time.deltaTime,ForceMode.Impulse);
             }
         }
@@ -33,16 +38,27 @@ public class Ball : MonoBehaviour
         {
             if (joystick.gameObject.activeSelf)
             {
+                Timer.Instance.ResetTimer();
                 joystick.gameObject.SetActive(false);
                 UIController.Instance.OurBall(true);
             }
         }
     }
-    public void GetParentOwner(Player player)
+    public void GetParentOwner(Transform player)
     {
         if (player)
             parent = player.transform;
         else
             parent = null;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        var rival = other.GetComponent<Rival>();
+        if (rival)
+        {
+            var pl = FindObjectOfType<Player>();
+            if(pl)
+            Destroy(pl.gameObject);
+        }
     }
 }

@@ -10,9 +10,18 @@ public class Floor : MonoBehaviour
     public Transform LeftPoint => leftPoint;
     [SerializeField] private bool startFloor;
     [SerializeField] private float timeActive;
-
+    [SerializeField] private MeshRenderer material;
+    [SerializeField] private Material color1, color2;
     private void OnEnable()
     {
+        if (this.material.sharedMaterial == color2)
+        {
+           this. material.sharedMaterial= color1;
+        }
+        else
+        {
+           this. material.sharedMaterial = color2;
+        }
         if (!startFloor)
         {
             StartCoroutine(CorDisabled());

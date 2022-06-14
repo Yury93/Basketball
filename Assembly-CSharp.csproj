@@ -55,22 +55,26 @@
   <ItemGroup>
     <Compile Include="Assets\Import Asset\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
     <Compile Include="Assets\Scripts\Ball.cs" />
+    <Compile Include="Assets\Scripts\SingletonBase.cs" />
     <Compile Include="Assets\Import Asset\Joystick Pack\Scripts\Base\Joystick.cs" />
     <Compile Include="Assets\Import Asset\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
+    <Compile Include="Assets\Scripts\PoolAllyPlayers.cs" />
     <Compile Include="Assets\Import Asset\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
+    <Compile Include="Assets\Scripts\PoolFloor.cs" />
     <Compile Include="Assets\Scripts\Floor.cs" />
     <Compile Include="Assets\Scripts\BallOwner.cs" />
+    <Compile Include="Assets\Scripts\PrefabsContainer.cs" />
     <Compile Include="Assets\Scripts\Swiper.cs" />
     <Compile Include="Assets\Scripts\InputMove.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Rival.cs" />
     <Compile Include="Assets\Import Asset\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
-    <Compile Include="Assets\Scripts\UIController.cs" />
-    <Compile Include="Assets\Scripts\SingletonBase.cs" />
     <Compile Include="Assets\Scripts\AllyPlayer.cs" />
-    <Compile Include="Assets\Scripts\PrefabsContainer.cs" />
     <Compile Include="Assets\Scripts\PoolObjects.cs" />
-    <Compile Include="Assets\Scripts\PoolFloor.cs" />
-    <Compile Include="Assets\Scripts\PoolAllyPlayers.cs" />
+    <Compile Include="Assets\Scripts\UIController.cs" />
+    <Compile Include="Assets\Scripts\PoolRivals.cs" />
+    <Compile Include="Assets\Scripts\Timer.cs" />
+    <Compile Include="Assets\Scripts\CalculatDistance.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -681,6 +685,12 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

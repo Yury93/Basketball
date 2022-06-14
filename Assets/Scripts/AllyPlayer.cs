@@ -23,7 +23,7 @@ public class AllyPlayer : MonoBehaviour
             pl.transform.position = transform.position;
             pl.gameObject.SetActive(true);
              var ballOwn = pl.GetComponentInChildren<BallOwner>();
-            ballOwn.OwnedBall(ball, ballOwn.RightArm, ballOwn.DownPoint,pl);
+            ballOwn.OwnedBall(ball, ballOwn.RightArm, ballOwn.DownPoint,pl.transform);
             gameObject.SetActive(false);
         }
     }

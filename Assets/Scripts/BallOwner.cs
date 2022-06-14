@@ -13,9 +13,11 @@ public class BallOwner : MonoBehaviour
     [SerializeField] private Transform downPoint;
     public Transform DownPoint => downPoint;
     [SerializeField] private Ball ball;
+    public Ball GetBall => ball;
     [SerializeField]private float offsetSize;
     [SerializeField] private Collider playerCollider;
     [SerializeField] private Player player;
+    [SerializeField] private float offsetZ;
 
     #endregion
     private void OnEnable()
@@ -30,12 +32,12 @@ public class BallOwner : MonoBehaviour
     /// <param name="rightArm"></param>
     /// <param name="downPoint"></param>
     /// <param name="parent"></param>
-    public void OwnedBall(Ball ball, Transform rightArm, Transform downPoint,Player parent)
+    public void OwnedBall(Ball ball, Transform rightArm, Transform downPoint,Transform parent)
     {
         this.rightArm = rightArm;
         this.downPoint = downPoint;
         this.ball = ball;
-        ball.transform.parent = gameObject.GetComponentInParent<InputMove>().transform;
+        ball.transform.parent = parent;
         ball.GetParentOwner(parent);
     }
     public void Pass()
@@ -52,7 +54,7 @@ public class BallOwner : MonoBehaviour
         if (ball)
         {
             ball.transform.DOMove(downPoint.position + 
-                new Vector3(offsetSize, 0,0), 0.25f);
+                new Vector3(offsetSize, 0,0), 0.2f);
         }
         else
         {
@@ -64,7 +66,7 @@ public class BallOwner : MonoBehaviour
     {
         if (ball)
         {
-            ball.transform.DOMove(rightArm.position, 0.2f);
+            ball.transform.DOMove(new Vector3(rightArm.position.x,rightArm.position.y,rightArm.position.z + offsetZ), 0.2f);
         }
         else
         {

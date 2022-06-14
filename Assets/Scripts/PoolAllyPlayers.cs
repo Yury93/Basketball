@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PoolAllyPlayers : PoolObjects<AllyPlayer>
 {
-    [SerializeField] private Player player;
+    [SerializeField] private Ball ball;
     [SerializeField] private float time;
     private float startTime;
     private void Start()
@@ -13,20 +13,39 @@ public class PoolAllyPlayers : PoolObjects<AllyPlayer>
     }
     private void Update()
     {
-        if (player.gameObject.activeSelf)
+        if (ball.gameObject.activeSelf)
         {
             time -= Time.deltaTime;
             if (time <= 0)
             {
-                int x = Random.Range(-2, 2);
+                int x = RandomizeInt(-3, 3);
                 int z = Random.Range(10, 22);
-                if(x == 1 || x == -1) { x = 0; }
-                GetVectorSpawn(new Vector3(player.transform.position.x + x,
-                    player.transform.position.y,
-                    player.transform.position.z+z));
+                GetVectorSpawn(new Vector3(x,
+                    -0.59f,
+                    ball.transform.position.z + z));
                 GetFreeElement();
                 time = startTime;
             } 
+        }
+    }
+    private int RandomizeInt(int min, int max)
+    {
+        int x = Random.Range(min, max);
+        if (x == 0 || x == 2 || x == -2)
+        {
+            return x;
+        }
+        else
+        {
+            while (true)
+            {
+                x = RandomizeInt(min, max);
+                if (x == 0 || x == 2 || x == -2)
+                {
+                    return x;
+                    break;
+                }
+            }
         }
     }
 }

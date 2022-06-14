@@ -8,7 +8,9 @@ public class Player : MonoBehaviour
     [SerializeField] private int teamId;
     [SerializeField] private BallOwner ballOwner;
     [SerializeField] private Animator animator;
+    [SerializeField] private float speed,maxSpeed;
     private Player player;
+    private Ball ball;
     public int TeamId => teamId;
     void Start()
     {
@@ -16,7 +18,17 @@ public class Player : MonoBehaviour
         player = GetComponent<Player>();
         AnimationRun(false);
     }
-
+    private void Update()
+    {
+        if (transform.rotation.y == 0)
+        {
+            transform.Translate(0, 0, speed * Time.deltaTime);
+            if (speed < maxSpeed)
+            {
+                speed += Time.deltaTime;
+            }
+        }
+    }
 
     public void AnimationRun(bool state)
     {
@@ -34,8 +46,18 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.TryGetComponent<Ball>(out var ball))
         {
-            ballOwner.OwnedBall(ball, ballOwner.RightArm, ballOwner.DownPoint, player);
+            this.ball = ball;
+            ballOwner.OwnedBall(ball, ballOwner.RightArm, ballOwner.DownPoint, player.transform);
             AnimationRun(true);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        var rival = other.GetComponent<Rival>();
+        if (rival)
+        {
+           
+          
         }
     }
 }
