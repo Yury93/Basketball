@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private int teamId;
     [SerializeField] private BallOwner ballOwner;
     [SerializeField] private Animator animator;
-    [SerializeField] private float speed,maxSpeed;
+    [SerializeField] private float speed;
     private Player player;
     private Ball ball;
     public int TeamId => teamId;
@@ -18,15 +19,13 @@ public class Player : MonoBehaviour
         player = GetComponent<Player>();
         AnimationRun(false);
     }
+  
     private void Update()
     {
         if (transform.rotation.y == 0)
         {
             transform.Translate(0, 0, speed * Time.deltaTime);
-            if (speed < maxSpeed)
-            {
-                speed += Time.deltaTime;
-            }
+           
         }
     }
 
@@ -51,13 +50,13 @@ public class Player : MonoBehaviour
             AnimationRun(true);
         }
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnEnable()
     {
-        var rival = other.GetComponent<Rival>();
-        if (rival)
-        {
-           
-          
-        }
+        AudioManager.Instance.AudioPlay("Pass");
+    }
+    private void OnDisable()
+    { 
+        if(AudioManager.Instance)
+        AudioManager.Instance.AudioPlay("PlayerDisactive");
     }
 }

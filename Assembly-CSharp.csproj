@@ -61,9 +61,11 @@
     <Compile Include="Assets\Scripts\PoolAllyPlayers.cs" />
     <Compile Include="Assets\Import Asset\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
     <Compile Include="Assets\Scripts\PoolFloor.cs" />
+    <Compile Include="Assets\Scripts\PoolRivals.cs" />
     <Compile Include="Assets\Scripts\Floor.cs" />
     <Compile Include="Assets\Scripts\BallOwner.cs" />
     <Compile Include="Assets\Scripts\PrefabsContainer.cs" />
+    <Compile Include="Assets\Scripts\CalculatDistance.cs" />
     <Compile Include="Assets\Scripts\Swiper.cs" />
     <Compile Include="Assets\Scripts\InputMove.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
@@ -72,9 +74,19 @@
     <Compile Include="Assets\Scripts\AllyPlayer.cs" />
     <Compile Include="Assets\Scripts\PoolObjects.cs" />
     <Compile Include="Assets\Scripts\UIController.cs" />
-    <Compile Include="Assets\Scripts\PoolRivals.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
-    <Compile Include="Assets\Scripts\CalculatDistance.cs" />
+    <Compile Include="Assets\Scripts\ShopSystem\Shop.cs" />
+    <Compile Include="Assets\Scripts\ShopSystem\ItemCell.cs" />
+    <Compile Include="Assets\Scripts\ShopSystem\Item.cs" />
+    <Compile Include="Assets\Scripts\ShopSystem\ItemsInventory.cs" />
+    <Compile Include="Assets\Scripts\WalletOperations.cs" />
+    <Compile Include="Assets\Scripts\SceneController.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\UnActive.cs" />
+    <Compile Include="Assets\Scripts\AudioManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\StylizedSkiesPack\HowToUse.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -656,8 +668,14 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:\Program Files\Unity\2020.3.26f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
@@ -685,12 +703,6 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

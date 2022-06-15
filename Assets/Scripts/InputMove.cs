@@ -28,4 +28,8 @@ public class InputMove : MonoBehaviour
             }
         }
     }
+    private void OnDestroy()
+    {
+        Swiper.OnSwipeEvent -= Swiper_OnSwipeEvent;
+    }
 }

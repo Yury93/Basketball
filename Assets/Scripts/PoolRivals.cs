@@ -19,7 +19,7 @@ public class PoolRivals : PoolObjects<Rival>
             if (time <= 0)
             {
                 int x = RandomizeInt(-3, 3);
-                int z = Random.Range(15, 40);
+                int z = Random.Range(15, 30);
                 
                 GetVectorSpawn(new Vector3(x+0.4f,
                     -0.59f,

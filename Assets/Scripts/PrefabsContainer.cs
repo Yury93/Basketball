@@ -5,4 +5,5 @@ using UnityEngine;
 public class PrefabsContainer : SingletonBase<PrefabsContainer>
 {
     public Player PlayerGo;
+    public GameObject Particl;
 }

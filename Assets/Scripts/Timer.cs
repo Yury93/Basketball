@@ -8,7 +8,9 @@ public class Timer : SingletonBase<Timer>
     [SerializeField] private float timer;
     private float startTimer;
     [SerializeField] private Text timeTxt;
+    public Text TimeTxt => timeTxt;
     [SerializeField] private bool pass,timerStop;
+    [SerializeField] private CalculatDistance distance;
     private void Start()
     {
         startTimer = timer;
@@ -35,11 +37,14 @@ public class Timer : SingletonBase<Timer>
         {
             if (timer <= 0)
             {
+                AudioManager.Instance.AudioPlay("Lose");
                 timeTxt.text = "Time's up!";
                 StartCoroutine(CorStopGame());
                 IEnumerator CorStopGame()
                 {
+                    distance.enabled = false;
                     yield return new WaitForSeconds(1f);
+                   
                     timerStop = true;
                 }
             }
@@ -64,6 +69,14 @@ public class Timer : SingletonBase<Timer>
         {
             timeTxt.color = Color.red;
             timeTxt.text = $"You lost a half, but not the whole game!";
+            StartCoroutine(CorLose());
+            IEnumerator CorLose()
+            {
+                
+                yield return new WaitForSeconds(3f);
+                
+                SceneController.Instance.SceneLoading("BetScene");
+            }
         }
     }
 }

@@ -25,7 +25,10 @@ public class UIController : SingletonBase<UIController>
         {
             joystick.gameObject.SetActive(true);
         }
-        buttonPass.gameObject.SetActive(state);
+        if (buttonPass)
+        {
+            buttonPass.gameObject.SetActive(state);
+        }
         swiper.gameObject.SetActive(state);
     }
 }

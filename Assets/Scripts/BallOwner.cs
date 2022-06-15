@@ -18,6 +18,7 @@ public class BallOwner : MonoBehaviour
     [SerializeField] private Collider playerCollider;
     [SerializeField] private Player player;
     [SerializeField] private float offsetZ;
+    [SerializeField] private AudioSource audioSource;
 
     #endregion
     private void OnEnable()
@@ -55,6 +56,7 @@ public class BallOwner : MonoBehaviour
         {
             ball.transform.DOMove(downPoint.position + 
                 new Vector3(offsetSize, 0,0), 0.2f);
+            audioSource.Play();
         }
         else
         {

@@ -8,7 +8,7 @@ public class Rival : MonoBehaviour
     public BallOwner OwnerRival => ballOwnerRival;
     [SerializeField] private Animator animator;
     [SerializeField] private float timeLives;
-
+    [SerializeField] private bool menu;
     private void OnEnable()
     {
         transform.DOLocalRotate(new Vector3(0, 180, 0), 1, RotateMode.Fast);
@@ -25,7 +25,10 @@ public class Rival : MonoBehaviour
         {
             ballOwnerRival.OwnedBall(ball, ballOwnerRival.RightArm, ballOwnerRival.DownPoint, this.gameObject.transform);
             animator.SetBool("BallMe", true);
-            Timer.Instance.StopTimer();
+            if (!menu)
+            {
+                Timer.Instance.StopTimer();
+            }
             return;
         }
     }
